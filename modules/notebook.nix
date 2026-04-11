@@ -1,8 +1,13 @@
 { config, pkgs, ... }:
 
 {
-    # Exemplo: Defina um hostname específico para o notebook
-    networking.hostName = "my-notebook";
+    networking.hostName = "notebook";
+
+    hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+    };
+    services.blueman.enable = true;
 
     users.users.bruno.packages = with pkgs; [
         bruno

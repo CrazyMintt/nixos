@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 
 {
-    networking.hostName = "my-desktop";
+    networking.hostName = "desktop";
 
     users.users.bruno.packages = with pkgs; [
-	gemini-cli
-	vivaldi
     ];
 }
