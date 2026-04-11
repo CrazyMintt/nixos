@@ -1,4 +1,3 @@
-# NixOS configuration for notebook
 { config, pkgs, ... }:
 
 {

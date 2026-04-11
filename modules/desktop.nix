@@ -1,4 +1,3 @@
-# NixOS configuration for desktop
 { config, pkgs, ... }:
 
 {
