@@ -1,4 +1,4 @@
-# /etc/nixos/modules/laptop.nix
+# NixOS configuration for notebook
 { config, pkgs, ... }:
 
 {
@@ -7,7 +7,9 @@
 
     users.users.bruno.packages = with pkgs; [
         bruno
+        gemini-cli
+        taskwarrior3
+        taskwarrior-tui
+        vscode
     ];
-    
-    # services.xserver.libinput.enable = true; # Já está no common, mas é um exemplo
 }

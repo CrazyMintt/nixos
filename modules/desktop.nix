@@ -1,4 +1,4 @@
-# /etc/nixos/modules/desktop.nix
+# NixOS configuration for desktop
 { config, pkgs, ... }:
 
 {
