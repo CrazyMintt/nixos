@@ -13,11 +13,6 @@
     # plugins = [ ... ];
 
     settings = {
-      ################
-      ### Monitor ###
-      ################
-      monitor = ",preferred,auto,1"; 
-
       #################
       ### AUTOSTART ###
       #################
@@ -27,13 +22,6 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
-
-      ##############
-      ### CURSOR ###
-      ##############
-      cursor = {
-        no_hardware_cursors = false;
-      };
 
       #####################
       ### LOOK AND FEEL ###

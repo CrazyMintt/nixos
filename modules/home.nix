@@ -1,5 +1,5 @@
 # Home Manager configuration
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, hyprlandConfig, ... }:
 
 {
   home.username = "bruno";
@@ -10,7 +10,7 @@
     ./programs.nix
     ./desktop-shells/noctalia.nix
     ./shell.nix
-    ./hyprland
+    hyprlandConfig
   ];
 
   xdg.configFile."kdedefaults/kdeglobals".text = ''
