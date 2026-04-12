@@ -22,7 +22,7 @@
     let
       system = "x86_64-linux";
 
-      mkSystem = hostModules: nixpkgs.lib.nixosSystem {
+      mkSystem = hostName: hostModules: nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
@@ -33,19 +33,22 @@
             home-manager.useUserPackages = true;
             home-manager.users.bruno = import ./modules/home.nix;
             home-manager.backupFileExtension = "bkp";
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              hyprlandConfig = ./modules/hyprland/default/${hostName}-default.nix;
+            };
           }
         ] ++ hostModules;
       };
     in
     {
       nixosConfigurations = {
-        notebook = mkSystem [
+        notebook = mkSystem "notebook" [
           ./modules/notebook.nix
           ./modules/hosts/notebook/hardware-configuration.nix
         ];
 
-        desktop = mkSystem [
+        desktop = mkSystem "desktop" [
           ./modules/desktop.nix
           ./modules/gaming.nix
           ./modules/hosts/desktop/hardware-configuration.nix
