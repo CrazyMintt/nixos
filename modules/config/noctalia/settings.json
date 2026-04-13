@@ -71,7 +71,7 @@
         "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
-        "showCapsule": true,
+        "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": false,
@@ -678,7 +678,7 @@
     },
     "wallpaper": {
         "automationEnabled": true,
-        "directory": "/home/bruno/Imagens",
+        "directory": "/home/bruno/.dotfiles/modules/config/wallpaper",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
