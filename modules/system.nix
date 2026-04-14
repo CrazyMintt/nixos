@@ -60,10 +60,18 @@
     pulse.enable = true;
   };
 
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+  };
+
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
