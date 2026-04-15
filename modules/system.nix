@@ -31,10 +31,16 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
+  # SDDM config
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "sddm-astronaut-theme";
+    extraPackages = [
+      pkgs.kdePackages.qtmultimedia
+    ];
+  };
+  
+  # Enable Hyprland
   programs.hyprland.enable = true;
 
   # Configure keymap in X11
@@ -62,9 +68,6 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-    '';
   };
 
   users.users.bruno = {
@@ -77,10 +80,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    git
+    # --- SDDM ---
+    (sddm-astronaut.override { embeddedTheme = "purple_leaves"; })
+
+    # --- Default ---
+    bat
     curl
+    git
+    vim
     wget
   ];
 

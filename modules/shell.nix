@@ -1,5 +1,13 @@
 { pkgs, ... }:
 
+let
+  shellAliases = {
+    cat = "bat";
+    nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+    zen-browser = "zen-twilight";
+  };
+in
+
 {
     programs.kitty = {
         enable = true;
@@ -7,5 +15,13 @@
         settings = {
             confirm_os_window_close = 0;
         };
+    };
+
+    programs.fish = {
+        enable = true;
+        interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+        '';
+        inherit shellAliases;
     };
 }

@@ -1,5 +1,5 @@
 # Home Manager configuration
-{ config, pkgs, inputs, hyprlandConfig, ... }:
+{ config, pkgs, inputs, hyprlandConfig, vars, ... }:
 
 {
   home.username = "bruno";
@@ -11,12 +11,15 @@
     ./desktop-shells/noctalia.nix
     ./shell.nix
     hyprlandConfig
+    ./theme.nix
   ];
 
-  xdg.configFile."kdedefaults/kdeglobals".text = ''
-    [General]
-    TerminalApplication=kitty
-  '';
+  home.sessionVariables = {
+    BROWSER = vars.browser;
+    DEFAULT_BROWSER = vars.browser;
+    TERMINAL = vars.terminal;
+    EDITOR = vars.editor;
+  };
 
   # Add home-manager packages
   home.packages = with pkgs; [

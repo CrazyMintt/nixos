@@ -23,6 +23,7 @@
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
+      userSettings = import ./variables.nix;
 
       mkSystem = hostName: hostModules: nixpkgs.lib.nixosSystem {
         inherit system;
@@ -37,7 +38,8 @@
             home-manager.backupFileExtension = "bkp";
             home-manager.extraSpecialArgs = {
               inherit inputs;
-              hyprlandConfig = ./modules/hyprland/default/${hostName}-default.nix;
+              vars = userSettings;
+              hyprlandConfig = ./modules/hyprland/monitor/${hostName}-default.nix;
             };
           }
         ] ++ hostModules;

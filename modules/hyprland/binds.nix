@@ -1,9 +1,9 @@
-{ ... }:
+{ vars, ... }:
 let
   mainMod = "SUPER";
-  terminal = "kitty";
-  browser = "zen-twilight";
-  fileManager = "dolphin";
+  terminal = "${vars.terminal}";
+  browser = "${vars.browser}";
+  fileManager = "${vars.terminal} -e ${vars.file}";
 in
 {
   wayland.windowManager.hyprland.settings = {

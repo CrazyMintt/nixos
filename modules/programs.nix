@@ -13,6 +13,7 @@ in
     ];
 
     programs.zen-browser.enable = true;
+
     programs.spicetify = {
         enable = true;
         enabledExtensions = with spicePkgs.extensions; [
@@ -21,13 +22,19 @@ in
         ];
     };
 
-    home.packages = with pkgs; [
-        kdePackages.kate
-        gh
-        obsidian
-        vim
+    programs.yazi = {
+        enable = true;
+        shellWrapperName = "y";
+    };
 
-        # Hyprland
+    home.packages = with pkgs; [
+        gh
+
+        # --- Notes ---
+        obsidian
+
+        # --- Hyprland ---
+        bibata-cursors
         hyprshot
     ];
 }
