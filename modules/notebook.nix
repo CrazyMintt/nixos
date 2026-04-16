@@ -17,7 +17,6 @@
 
         # --- Code ---
         gemini-cli
-        vscode
         
         # --- To Do ---
         taskwarrior3

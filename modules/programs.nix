@@ -30,6 +30,9 @@ in
     home.packages = with pkgs; [
         gh
 
+        # --- Code ---
+        vscode
+
         # --- Notes ---
         obsidian
 
