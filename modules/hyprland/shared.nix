@@ -32,6 +32,7 @@
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
+        "col.active_border" = "rgb(171717)";
       };
 
       decoration = {
