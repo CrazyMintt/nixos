@@ -39,5 +39,8 @@ in
         # --- Hyprland ---
         bibata-cursors
         hyprshot
+
+        # --- File Picker ---
+        nautilus
     ];
 }
