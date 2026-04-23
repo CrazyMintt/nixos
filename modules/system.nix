@@ -92,6 +92,10 @@
     git
     vim
     wget
+
+    # --- File Extractor ---
+    unzip
+    zip
   ];
 
   # NixOS state version
