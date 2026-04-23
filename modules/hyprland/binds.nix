@@ -15,6 +15,7 @@ in
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, code"
+      "$mainMod SHIFT, T, exec, ${terminal} -e taskwarrior-tui"
       "$mainMod, I, exec, noctalia-shell ipc call settings toggle"
       "$mainMod, BACKSPACE, exec, noctalia-shell ipc call sessionMenu toggle"
       "$mainMod, L, exec, noctalia-shell ipc call lockScreen lock"

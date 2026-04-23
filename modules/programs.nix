@@ -30,6 +30,8 @@ in
     home.packages = with pkgs; [
         gh
 
+        libreoffice
+
         # --- Code ---
         vscode
 
