@@ -11,6 +11,10 @@
     services.upower.enable = true;
     services.power-profiles-daemon.enable = true;
 
+    virtualisation.docker.enable = true;
+
+    users.users.bruno.extraGroups = [ "docker" ];
+
     users.users.bruno.packages = with pkgs; [
         # --- Api ---
         bruno
