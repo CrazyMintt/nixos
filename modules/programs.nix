@@ -28,8 +28,9 @@ in
     };
 
     home.packages = with pkgs; [
+        # --- Etc ---
         gh
-
+        keepassxc
         libreoffice
 
         # --- Code ---
