@@ -4,6 +4,7 @@ let
   shellAliases = {
     cat = "bat";
     nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+    ncg = "sudo nix-collect-garbage -d";
     zen-browser = "zen-twilight";
   };
 in
