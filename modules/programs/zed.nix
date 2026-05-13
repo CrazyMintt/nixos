@@ -6,6 +6,7 @@
     extraPackages = with pkgs; [
       # NixOS
       nil
+      nixd
       nixfmt
     ];
     extensions = [
