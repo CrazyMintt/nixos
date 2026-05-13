@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config,... }:
 
 let
   spicetify = inputs.spicetify-nix.lib.mkSpicetify pkgs {
   };
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in 
+in
 
 {
     imports = [
@@ -25,6 +25,33 @@ in
     programs.yazi = {
         enable = true;
         shellWrapperName = "y";
+    };
+
+    programs.zed-editor = {
+      enable = true;
+      extensions = [
+        "nix"
+      ];
+      userSettings = {
+        telemetry = {
+          metrics = false;
+        };
+      };
+      userKeymaps = 
+      [
+        {
+          context = "Editor";
+          bindings = {
+            "ctrl-;" = [
+              "editor::ToggleComments"
+              {
+                "advance_downwards" = false;
+              }
+            ];
+          };
+        }
+      ];
+      themes.text = "${config.home.homeDirectory}/.config/zed/themes/noctalia.json";
     };
 
     home.packages = with pkgs; [
