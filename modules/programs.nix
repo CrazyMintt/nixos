@@ -36,6 +36,11 @@ in
         telemetry = {
           metrics = false;
         };
+        theme = {
+          mode = "dark";
+          light = "One Light";
+          dark = "Noctalia Dark";
+        };
       };
       userKeymaps = 
       [
