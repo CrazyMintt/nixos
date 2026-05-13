@@ -14,7 +14,7 @@ in
       "$mainMod, E, exec, ${fileManager}"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
-      "$mainMod, C, exec, code"
+      "$mainMod, C, exec, zeditor --classic"
       "$mainMod SHIFT, T, exec, ${terminal} -e taskwarrior-tui"
       "$mainMod, I, exec, noctalia-shell ipc call settings toggle"
       "$mainMod, BACKSPACE, exec, noctalia-shell ipc call sessionMenu toggle"
