@@ -29,6 +29,11 @@ in
 
     programs.zed-editor = {
       enable = true;
+      extraPackages = with pkgs; [
+        # NixOS
+        nixd
+        nixfmt
+      ];
       extensions = [
         "nix"
       ];
