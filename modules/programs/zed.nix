@@ -13,7 +13,7 @@
       "nix"
     ];
     userSettings = {
-      disableAi = true;
+      disable_ai = true;
       telemetry = {
         metrics = false;
         diagnostics = false;
@@ -41,11 +41,16 @@
         entry_spacing = "standard";
         dock = "left";
       };
+      git_panel = {
+        tree_view = true;
+        dock = "left";
+      };
       collaboration_panel = {
         button = false;
       };
-      git_panel = {
-        tree_view = true;
+      outline_panel = {
+        button = false;
+        dock = "left";
       };
       git = {
         inline_blame = {
