@@ -4,6 +4,7 @@ let
   terminal = "${vars.terminal}";
   browser = "${vars.browser}";
   fileManager = "${vars.terminal} -e ${vars.file}";
+  editor = "${vars.editor}";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -14,7 +15,7 @@ in
       "$mainMod, E, exec, ${fileManager}"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
-      "$mainMod, C, exec, zeditor --classic"
+      "$mainMod, C, exec, ${editor}"
       "$mainMod SHIFT, T, exec, ${terminal} -e taskwarrior-tui"
       "$mainMod, I, exec, noctalia-shell ipc call settings toggle"
       "$mainMod, BACKSPACE, exec, noctalia-shell ipc call sessionMenu toggle"
