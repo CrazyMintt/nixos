@@ -33,7 +33,6 @@ in
         gh
         keepassxc
         libreoffice
-        localsend
 
         # --- Code ---
         vscode

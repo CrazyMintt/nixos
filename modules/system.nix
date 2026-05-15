@@ -72,6 +72,11 @@
     enable = true;
   };
 
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
+
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno";
