@@ -1,4 +1,4 @@
-{ config, inputs, ...}:
+{ inputs, ...}:
 
 # illogical-flake = {
 #   url = "github:soymou/illogical-flake";

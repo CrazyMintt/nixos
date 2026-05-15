@@ -1,5 +1,5 @@
 # Home Manager configuration
-{ config, pkgs, inputs, hyprlandConfig, vars, ... }:
+{ pkgs, hyprlandConfig, vars, ... }:
 
 {
   home.username = "bruno";

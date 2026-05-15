@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }:
+{ ... }:
 {
   imports = [
     ./binds.nix
