@@ -35,7 +35,9 @@ in
         libreoffice
 
         # --- Code ---
-        vscode
+        docker
+        python3
+        nodejs_24
 
         # --- Notes ---
         obsidian

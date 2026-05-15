@@ -14,6 +14,11 @@
     ];
     userSettings = {
       disable_ai = true;
+      autosave = {
+        after_delay = {
+          milliseconds = 500;
+        };
+      };
       telemetry = {
         metrics = false;
         diagnostics = false;
