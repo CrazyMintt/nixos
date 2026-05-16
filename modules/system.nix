@@ -9,6 +9,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ 29716 42671 ];
+  };
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
