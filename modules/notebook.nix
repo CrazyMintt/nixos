@@ -22,9 +22,8 @@
         # --- Code ---
         gemini-cli
         
-        # --- To Do ---
-        taskwarrior3
-        taskwarrior-tui
+        # --- Etc ---
+        rpi-imager
         
         # --- College ---
         processing
