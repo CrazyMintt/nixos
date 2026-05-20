@@ -81,6 +81,8 @@
     openFirewall = true;
   };
 
+  services.tailscale.enable = true;
+
   users.users.bruno = {
     isNormalUser = true;
     description = "Bruno";
