@@ -28,7 +28,6 @@ in
       "$mainMod, D, fullscreen, 1"
       "$mainMod ALT, SPACE, togglefloating"
       "$mainMod, P, pseudo"
-      "$mainMod, J, togglesplit"
       "$mainMod, Tab, exec, noctalia-shell ipc call overview toggle"
 
       # Focus

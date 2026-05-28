@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
     networking.hostName = "desktop";
@@ -16,4 +16,8 @@
     };
     
     services.xserver.videoDrivers = [ "nvidia" ];
+
+    users.users.bruno.packages = with pkgs; [
+      protonup-qt
+    ];
 }
