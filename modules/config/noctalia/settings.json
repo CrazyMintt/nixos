@@ -660,6 +660,10 @@
             {
                 "enabled": true,
                 "id": "zed"
+            },
+            {
+                "enabled": true,
+                "id": "btop"
             }
         ],
         "enableUserTheming": false

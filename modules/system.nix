@@ -97,8 +97,8 @@
 
     # --- Default ---
     bat
+    btop
     curl
-    git
     vim
     wget
 

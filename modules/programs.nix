@@ -28,6 +28,16 @@ in
         shellWrapperName = "y";
     };
 
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Bruno";
+          email = "manobrunodutra@gmail.com";
+        };
+      };
+    };
+
     home.packages = with pkgs; [
         # --- Etc ---
         gh
