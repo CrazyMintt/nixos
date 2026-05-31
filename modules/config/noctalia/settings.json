@@ -664,6 +664,14 @@
             {
                 "enabled": true,
                 "id": "btop"
+            },
+            {
+                "enabled": true,
+                "id": "kitty"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
             }
         ],
         "enableUserTheming": false
