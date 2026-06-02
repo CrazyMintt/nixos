@@ -17,8 +17,6 @@
     virtualisation.docker.enable = true;
     users.users.bruno.extraGroups = [ "docker" ];
 
-    services.tailscale.enable = true;
-
     users.users.bruno.packages = with pkgs; [
         # --- Api ---
         bruno

@@ -11,7 +11,6 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [ 29716 42671 ];
   };
 
   # Set your time zone.
