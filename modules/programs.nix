@@ -49,6 +49,7 @@ in
         docker
         python3
         nodejs_24
+        devenv
 
         # --- Notes ---
         obsidian
