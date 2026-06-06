@@ -10,7 +10,7 @@ in
     imports = [
         inputs.zen-browser.homeModules.twilight
         inputs.spicetify-nix.homeManagerModules.spicetify
-        ./programs/zed.nix
+        ./develop.nix
     ];
 
     programs.zen-browser.enable = true;
@@ -44,12 +44,6 @@ in
         gnome-obfuscate
         keepassxc
         libreoffice
-
-        # --- Code ---
-        docker
-        python3
-        nodejs_24
-        devenv
 
         # --- Notes ---
         obsidian
