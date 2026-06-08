@@ -26,8 +26,5 @@
         
         # --- Etc ---
         rpi-imager
-        
-        # --- College ---
-        processing
     ];
 }
