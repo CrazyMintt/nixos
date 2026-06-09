@@ -27,4 +27,17 @@
         # --- Etc ---
         rpi-imager
     ];
+
+    home-manager.users.bruno = { ... }: {
+      xdg.configFile."yazi/keymap.toml".text = ''
+          [mgr]
+          prepend_keymap = [
+         	  { on = [ "g", "d" ], run = "cd /mnt/hd/Dev", desc = "Go to Dev folder" }
+          ]
+          append_keymap = [
+         	  { on = [ "g", "o" ], run = "cd /mnt/hd/Obsidian", desc = "Go to Obsidian folder" },
+            { on = [ "g", "H" ], run = "cd /mnt/hd", desc = "Go to HD folder" }
+          ]
+          '';
+    };
 }
