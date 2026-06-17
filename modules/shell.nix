@@ -3,6 +3,7 @@
 let
   shellAliases = {
     cat = "bat";
+    dev = "devenv shell -- zeditor . && exit";
     ssh = "kitty +kitten ssh";
     nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     ncg = "sudo nix-collect-garbage -d";
