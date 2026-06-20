@@ -19,7 +19,7 @@
       #################
       exec-once = [
         "nm-applet &"
-        "noctalia-shell &"
+        "noctalia &"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];

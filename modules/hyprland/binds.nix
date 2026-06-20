@@ -17,9 +17,9 @@ in
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, ${editor}"
       "$mainMod SHIFT, T, exec, ${terminal} -e taskwarrior-tui"
-      "$mainMod, I, exec, noctalia-shell ipc call settings toggle"
-      "$mainMod, BACKSPACE, exec, noctalia-shell ipc call sessionMenu toggle"
-      "$mainMod, L, exec, noctalia-shell ipc call lockScreen lock"
+      "$mainMod, I, exec, noctalia msg settings-toggle"
+      "$mainMod, BACKSPACE, exec, noctalia msg panel-toggle session"
+      "$mainMod, L, exec, noctalia msg session lock"
       "CTRL SHIFT, Escape, exec, ${terminal} -e btop"
 
       # Windows
@@ -28,7 +28,6 @@ in
       "$mainMod, D, fullscreen, 1"
       "$mainMod ALT, SPACE, togglefloating"
       "$mainMod, P, pseudo"
-      "$mainMod, Tab, exec, noctalia-shell ipc call overview toggle"
 
       # Focus
       "$mainMod, left, movefocus, l"
@@ -74,18 +73,18 @@ in
       "$mainMod ALT, S, movetoworkspace, special:magic"
 
       # Media Keys
-      ", XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increase"
-      ", XF86MonBrightnessDown, exec, noctalia-shell ipc call brightness decrease"
-      ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
-      ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
-      ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
-      ", XF86AudioPlay, exec, noctalia-shell ipc call media playPause"
-      ", XF86AudioNext, exec, noctalia-shell ipc call media next"
-      ", XF86AudioPrev, exec, noctalia-shell ipc call media previous"
-      ", XF86AudioMicMute, exec, noctalia-shell ipc call volume muteInput"
+      ", XF86MonBrightnessUp, exec, noctalia msg brightness-up"
+      ", XF86MonBrightnessDown, exec, noctalia msg brightness-down"
+      ", XF86AudioRaiseVolume, exec, noctalia msg volume-up"
+      ", XF86AudioLowerVolume, exec, noctalia msg volume-down"
+      ", XF86AudioMute, exec, noctalia msg volume-mute"
+      ", XF86AudioPlay, exec, noctalia msg media toggle"
+      ", XF86AudioNext, exec, noctalia msg next"
+      ", XF86AudioPrev, exec, noctalia msg previous"
+      ", XF86AudioMicMute, exec, noctalia msg mic-mute"
 
       # Extras
-      "$mainMod, V, exec, noctalia-shell ipc call launcher clipboard"
+      "$mainMod, V, exec, noctalia msg panel-toggle clipboard"
 
       # Screenshots
       ", Print, exec, hyprshot -z -m output -m active -o ~/Pictures/Screenshots/"
@@ -95,7 +94,7 @@ in
 
     # Binds que repetem (bindr), binds de mouse (bindm), etc
     bindr = [
-      "$mainMod, SUPER_L, exec, noctalia-shell ipc call launcher toggle"
+      "$mainMod, SUPER_L, exec, noctalia msg panel-toggle launcher"
     ];
 
     binde = [

@@ -1,0 +1,120 @@
+[bar.default]
+center = [ "workspaces" ]
+end = [ "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+margin_edge = 6
+margin_ends = 6
+start = [ "control-center", "clock", "sysmon", "media", "audio_visualizer" ]
+
+[control_center]
+sidebar = "none"
+sidebar_section = "none"
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen]
+fingerprint = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+[[plugins.source]]
+enabled = false
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+name = "official"
+
+[[plugins.source]]
+enabled = false
+kind = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+name = "community"
+
+[shell.panel]
+open_near_click_control_center = true
+session_placement = "centered"
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "hyprland", "kitty" ]
+    community_ids = [ "zed", "yazi" ]
+
+[wallpaper]
+directory = "/home/bruno/.dotfiles/modules/config/wallpaper"
+
+    [wallpaper.automation]
+    enabled = true
+    interval_seconds = 900
+
+    [wallpaper.default]
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+
+    [wallpaper.last]
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+
+[widget.audio_visualizer]
+mirrored = false
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+[widget.network]
+show_label = false
+
+[widget.sysmon]
+show_label = false
+
+[widget.volume]
+show_label = false
