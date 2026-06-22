@@ -1,9 +1,13 @@
 [bar.default]
 center = [ "workspaces" ]
-end = [ "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
-margin_edge = 6
-margin_ends = 6
-start = [ "control-center", "clock", "sysmon", "media", "audio_visualizer" ]
+end = [ "network", "bluetooth", "notifications", "battery", "volume", "brightness", "session" ]
+margin_edge = 0
+margin_ends = 0
+radius = 0
+scale = 0.85000000521540642
+start = [ "control-center", "clock", "sysmon", "active_window", "audio_visualizer" ]
+thickness = 27
+widget_spacing = 18
 
 [control_center]
 sidebar = "none"
@@ -22,13 +26,16 @@ sidebar_section = "none"
     type = "notification"
 
     [[control_center.shortcuts]]
-    type = "power_profile"
+    type = "dark_mode"
 
     [[control_center.shortcuts]]
-    type = "dark_mode"
+    type = "caffeine"
 
 [desktop_widgets]
 enabled = false
+
+[location]
+auto_locate = true
 
 [lockscreen]
 fingerprint = false
@@ -59,6 +66,10 @@ widget_order = [ "lockscreen-login-box@DP-2" ]
         input_opacity = 1.0
         input_radius = 6.0
         show_login_button = true
+
+[osd.kinds]
+lock_keys = false
+media = false
 
 [[plugins.source]]
 enabled = false
@@ -95,16 +106,24 @@ directory = "/home/bruno/.dotfiles/modules/config/wallpaper"
     interval_seconds = 900
 
     [wallpaper.default]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
 
     [wallpaper.last]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-4yjmlk.jpg"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
+
+[widget.active_window]
+title_scroll = "on_hover"
 
 [widget.audio_visualizer]
 mirrored = false
+
+[widget.clock]
+format = "%H:%M %a, %b %d"
+tooltip_format = "%H:%M %a, %b %d"
+vertical_format = "%H %M - %d %m"
 
 [widget.media]
 hide_when_no_media = true
@@ -113,7 +132,13 @@ title_scroll = "on_hover"
 [widget.network]
 show_label = false
 
+[widget.ram]
+show_label = false
+
 [widget.sysmon]
+show_label = false
+
+[widget.temp]
 show_label = false
 
 [widget.volume]
