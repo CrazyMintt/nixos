@@ -43,7 +43,7 @@ fingerprint = false
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-2" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-2" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -60,6 +60,23 @@ widget_order = [ "lockscreen-login-box@DP-2" ]
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
@@ -106,19 +123,25 @@ directory = "/home/bruno/.dotfiles/modules/config/wallpaper"
     interval_seconds = 900
 
     [wallpaper.default]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
     [wallpaper.last]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
     [wallpaper.monitors.DP-2]
     path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
 [widget.active_window]
 title_scroll = "on_hover"
 
 [widget.audio_visualizer]
 mirrored = false
+
+[widget.brightness]
+show_label = false
 
 [widget.clock]
 format = "%H:%M %a, %b %d"

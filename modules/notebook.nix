@@ -22,7 +22,7 @@
         bruno
 
         # --- Code ---
-        gemini-cli
+        antigravity-cli
         
         # --- Etc ---
         rpi-imager
