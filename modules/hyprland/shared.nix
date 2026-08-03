@@ -68,6 +68,10 @@
         special_scale_factor = 0.9;
       };
 
+      ecosystem = {
+        no_update_news = true;
+      };
+
       misc = {
         disable_hyprland_logo = true;
         allow_session_lock_restore = true;
