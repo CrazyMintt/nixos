@@ -44,6 +44,7 @@ in
         gnome-obfuscate
         keepassxc
         libreoffice
+        networkmanagerapplet
 
         # --- Notes ---
         obsidian
