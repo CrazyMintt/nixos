@@ -1,3 +1,5 @@
+config_version = 12
+
 [bar.default]
 center = [ "workspaces" ]
 end = [ "network", "bluetooth", "notifications", "battery", "volume", "brightness", "session" ]
@@ -159,7 +161,7 @@ show_label = false
 show_label = false
 
 [widget.sysmon]
-show_label = false
+show_value = false
 
 [widget.temp]
 show_label = false
