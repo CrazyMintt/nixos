@@ -49,6 +49,7 @@
       nixosConfigurations = {
         notebook = mkSystem "notebook" [
           ./modules/notebook.nix
+          ./modules/gaming.nix
           ./modules/hosts/notebook/hardware-configuration.nix
         ];
 
