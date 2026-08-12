@@ -18,6 +18,7 @@
     services.xserver.videoDrivers = [ "nvidia" ];
 
     users.users.bruno.packages = with pkgs; [
+      antigravity-cli
       protonup-qt
     ];
 
