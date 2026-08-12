@@ -38,6 +38,9 @@ in
       };
     };
 
+    home.file.".mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json".source =
+      "${pkgs.keepassxc}/share/mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json";
+    
     home.packages = with pkgs; [
         # --- Etc ---
         gh
