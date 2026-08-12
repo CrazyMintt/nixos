@@ -44,7 +44,17 @@
   };
   
   # Enable Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        rm -f $out/share/wayland-sessions/hyprland-uwsm.desktop
+      '';
+      passthru = (oldAttrs.passthru or {}) // {
+        providedSessions = [ "hyprland" ];
+      };
+    });
+  };
 
   programs.dconf.enable = true;
 
