@@ -1,5 +1,3 @@
-{ ... }:
-
 let
   shellAliases = {
     cat = "bat";
