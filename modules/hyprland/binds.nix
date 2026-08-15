@@ -16,7 +16,6 @@ in
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, ${editor}"
-      "$mainMod SHIFT, T, exec, ${terminal} -e taskwarrior-tui"
       "$mainMod, I, exec, noctalia msg settings-toggle"
       "$mainMod, BACKSPACE, exec, noctalia msg panel-toggle session"
       "$mainMod, L, exec, noctalia msg session lock"
@@ -27,18 +26,6 @@ in
       "$mainMod, F, fullscreen"
       "$mainMod, D, fullscreen, 1"
       "$mainMod ALT, SPACE, togglefloating"
-      "$mainMod, P, pseudo"
-
-      # Focus
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
-
-      "$mainMod SHIFT, left, movewindow, l"
-      "$mainMod SHIFT, right, movewindow, r"
-      "$mainMod SHIFT, up, movewindow, u"
-      "$mainMod SHIFT, down, movewindow, d"
 
       # Workspaces
       "$mainMod, 1, workspace, 1"
@@ -95,12 +82,6 @@ in
     # Binds que repetem (bindr), binds de mouse (bindm), etc
     bindr = [
       "$mainMod, SUPER_L, exec, noctalia msg panel-toggle launcher"
-    ];
-
-    binde = [
-      # Binds que repetem ao segurar
-      "ALT, Tab, cyclenext"
-      "ALT, Tab, bringactivetotop"
     ];
 
     bindm = [

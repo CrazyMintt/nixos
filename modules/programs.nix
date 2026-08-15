@@ -11,6 +11,7 @@ in
         inputs.zen-browser.homeModules.twilight
         inputs.spicetify-nix.homeManagerModules.spicetify
         ./develop.nix
+        ./programs/keepassxc.nix
     ];
 
     programs.zen-browser.enable = true;
@@ -38,14 +39,10 @@ in
       };
     };
 
-    home.file.".mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json".source =
-      "${pkgs.keepassxc}/share/mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json";
-    
     home.packages = with pkgs; [
         # --- Etc ---
         gh
         gnome-obfuscate
-        keepassxc
         libreoffice
         networkmanagerapplet
 
