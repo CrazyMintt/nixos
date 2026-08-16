@@ -43,6 +43,7 @@ in
         # --- Etc ---
         gh
         gnome-obfuscate
+        infisical
         libreoffice
         networkmanagerapplet
 
