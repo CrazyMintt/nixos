@@ -11,11 +11,11 @@
 
       listener = [
         {
-          timeout = 600;
+          timeout = 60000;
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 1800;
+          timeout = 180000;
           on-timeout = "systemctl suspend";
         }
       ];
