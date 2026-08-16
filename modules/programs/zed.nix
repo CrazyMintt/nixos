@@ -11,6 +11,7 @@
     ];
     extensions = [
       "nix"
+      "live-server"
     ];
     userSettings = {
       disable_ai = true;
@@ -51,6 +52,12 @@
         dock = "left";
       };
       collaboration_panel = {
+        button = false;
+      };
+      search = {
+        button = false;
+      };
+      diagnostics = {
         button = false;
       };
       outline_panel = {
