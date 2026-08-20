@@ -8,6 +8,9 @@
       nil
       nixd
       nixfmt
+
+      # Python
+      basedpyright
     ];
     extensions = [
       "nix"
