@@ -102,9 +102,12 @@ kind = "git"
 location = "https://github.com/noctalia-dev/community-plugins"
 name = "community"
 
-[shell.panel]
-open_near_click_control_center = true
-session_placement = "centered"
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+
+    [shell.panel]
+    open_near_click_control_center = true
+    session_placement = "centered"
 
 [theme]
 builtin = "Noctalia"

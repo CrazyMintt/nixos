@@ -22,6 +22,12 @@
         };
     };
 
+    fonts.fontconfig.defaultFonts = {
+      monospace = [ "JetBrainsMono Nerd Font" ];
+      serif = [ "JetBrainsMono Nerd Font" ];
+      sansSerif = [ "JetBrainsMono Nerd Font" ];
+    };
+
     # Mouse pointer cursor theme
     home.pointerCursor = {
         enable = true;
@@ -33,4 +39,9 @@
         name = vars.cursorTheme;
         size = vars.cursorSize;
   };
+
+  home.packages = with pkgs; [
+    # --- Font ---
+    nerd-fonts.jetbrains-mono
+  ];
 }
