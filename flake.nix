@@ -18,6 +18,11 @@
     };
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    site-matheus = {
+      url = "git+https://github.com/CrazyMintt/SiteMatheus.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs:
@@ -30,6 +35,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./modules/system.nix
+          ./modules/services/site-matheus.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
