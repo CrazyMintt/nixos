@@ -12,6 +12,8 @@ in
     bind = [
       # Apps
       "$mainMod, T, exec, ${terminal}"
+      "$mainMod SHIFT, T, exec, zeditor ~/.dotfiles"
+      "$mainMod, K, exec, keepassxc"
       "$mainMod, E, exec, ${fileManager}"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
