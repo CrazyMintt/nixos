@@ -11,19 +11,19 @@ let
 in
 
 {
-    programs.kitty = {
-        enable = true;
-        extraConfig = "include $HOME/.config/kitty/themes/noctalia.conf";
-        settings = {
-            confirm_os_window_close = 0;
-        };
+  programs.kitty = {
+    enable = true;
+    extraConfig = "include $HOME/.config/kitty/themes/noctalia.conf";
+    settings = {
+      confirm_os_window_close = 0;
     };
+  };
 
-    programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-        set fish_greeting # Disable greeting
-        '';
-        inherit shellAliases;
-    };
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+    set fish_greeting # Disable greeting
+    '';
+    inherit shellAliases;
+  };
 }

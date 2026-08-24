@@ -19,6 +19,7 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
+    # --- Projects/Services ---
     site-matheus = {
       url = "git+https://github.com/CrazyMintt/SiteMatheus.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +36,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./modules/system.nix
-          ./modules/services/site-matheus.nix
+          ./modules/services
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -54,15 +55,15 @@
     {
       nixosConfigurations = {
         notebook = mkSystem "notebook" [
-          ./modules/notebook.nix
-          ./modules/gaming.nix
+          ./modules/hosts/notebook/configuration.nix
           ./modules/hosts/notebook/hardware-configuration.nix
+          ./modules/gaming.nix
         ];
 
         desktop = mkSystem "desktop" [
-          ./modules/desktop.nix
-          ./modules/gaming.nix
+          ./modules/hosts/desktop/configuration.nix
           ./modules/hosts/desktop/hardware-configuration.nix
+          ./modules/gaming.nix
         ];
       };
     };

@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-   programs.steam.enable = true;
+  programs.steam.enable = true;
 
-   users.users.bruno.packages = with pkgs; [
-      discord
-      steam
-   ];
+  users.users.bruno.packages = with pkgs; [
+    discord
+    steam
+  ];
 }

@@ -7,54 +7,54 @@ let
 in
 
 {
-    imports = [
-        inputs.zen-browser.homeModules.twilight
-        inputs.spicetify-nix.homeManagerModules.spicetify
-        ./develop.nix
-        ./programs/keepassxc.nix
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+    inputs.spicetify-nix.homeManagerModules.spicetify
+    ./develop.nix
+    ./programs/keepassxc.nix
+  ];
+
+  programs.zen-browser.enable = true;
+
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+    adblockify
+    hidePodcasts
     ];
+  };
 
-    programs.zen-browser.enable = true;
+  programs.yazi = {
+    enable = true;
+    shellWrapperName = "y";
+  };
 
-    programs.spicetify = {
-        enable = true;
-        enabledExtensions = with spicePkgs.extensions; [
-        adblockify
-        hidePodcasts
-        ];
-    };
-
-    programs.yazi = {
-        enable = true;
-        shellWrapperName = "y";
-    };
-
-    programs.git = {
-      enable = true;
-      settings = {
-        user = {
-          name = "Bruno";
-          email = "manobrunodutra@gmail.com";
-        };
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Bruno";
+        email = "manobrunodutra@gmail.com";
       };
     };
+  };
 
-    home.packages = with pkgs; [
-        # --- Etc ---
-        gh
-        gnome-obfuscate
-        infisical
-        libreoffice
-        networkmanagerapplet
+  home.packages = with pkgs; [
+    # --- Etc ---
+    gh
+    gnome-obfuscate
+    infisical
+    libreoffice
+    networkmanagerapplet
 
-        # --- Notes ---
-        obsidian
+    # --- Notes ---
+    obsidian
 
-        # --- Hyprland ---
-        bibata-cursors
-        hyprshot
+    # --- Hyprland ---
+    bibata-cursors
+    hyprshot
 
-        # --- File Picker ---
-        nautilus
-    ];
+    # --- File Picker ---
+    nautilus
+  ];
 }

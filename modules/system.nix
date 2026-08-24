@@ -4,7 +4,6 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -13,12 +12,9 @@
     enable = true;
   };
 
-  # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";
     LC_IDENTIFICATION = "pt_BR.UTF-8";
@@ -31,10 +27,8 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # SDDM config
   services.displayManager.sddm = {
     enable = true;
     theme = "sddm-astronaut-theme";
@@ -43,7 +37,6 @@
     ];
   };
   
-  # Enable Hyprland
   programs.hyprland = {
     enable = true;
     package = pkgs.hyprland.overrideAttrs (oldAttrs: {
@@ -64,13 +57,8 @@
     variant = "";
   };
 
-  # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
@@ -97,7 +85,6 @@
     shell = pkgs.fish;
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -116,6 +103,5 @@
     zip
   ];
 
-  # NixOS state version
   system.stateVersion = "25.11";
 }
