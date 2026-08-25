@@ -12,12 +12,12 @@ in
     bind = [
       # Apps
       "$mainMod, T, exec, ${terminal}"
-      "$mainMod SHIFT, T, exec, zeditor ~/.dotfiles"
       "$mainMod, K, exec, keepassxc"
       "$mainMod, E, exec, ${fileManager}"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, ${editor}"
+      "$mainMod SHIFT, C, exec, ${editor} ~/.dotfiles"
       "$mainMod, I, exec, noctalia msg settings-toggle"
       "$mainMod, BACKSPACE, exec, noctalia msg panel-toggle session"
       "$mainMod, L, exec, noctalia msg session lock"
