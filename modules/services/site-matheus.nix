@@ -2,7 +2,7 @@
 
 let
   cfg = config.services.site-matheus;
-  sitePkg = inputs.site-matheus.packages.${pkgs.system}.default;
+  sitePkg = inputs.site-matheus.packages.${pkgs.system}.default or inputs.site-matheus.packages.x86_64-linux.default;
 in
 {
   options.services.site-matheus = {
@@ -22,7 +22,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "${pkgs.python3}/bin/python3 -m http.server ${toString cfg.port} --directory ${sitePkg}/share/www";
+        ExecStart = "${pkgs.python3}/bin/python3 -m http.server --bind 0.0.0.0 ${toString cfg.port} --directory ${sitePkg}/share/www";
         Restart = "always";
         User = "nobody";
       };

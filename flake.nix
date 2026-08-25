@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -26,7 +27,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-24-11, home-manager, noctalia, ... }@inputs:
     let
       system = "x86_64-linux";
       userSettings = import ./variables.nix;
@@ -65,6 +66,18 @@
           ./modules/hosts/desktop/hardware-configuration.nix
           ./modules/gaming.nix
         ];
+
+        nix-rpi-server = nixpkgs-24-11.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            {
+              nixpkgs.buildPlatform = "x86_64-linux";
+              nixpkgs.hostPlatform = "armv6l-linux";
+            }
+            ./modules/services
+            ./modules/hosts/nix-rpi-server/default.nix
+          ];
+        };
       };
     };
 }
