@@ -1,7 +1,8 @@
 {
   terminal = "kitty";
   browser = "zen-twilight";
-  editor = "zeditor --classic";
+  editor = "vim";
+  guiEditor = "zeditor --classic";
   file = "yazi";
 
   cursorSize = 24;

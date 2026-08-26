@@ -36,5 +36,12 @@
         { on = [ "g", "H" ], run = "cd /mnt/hd", desc = "Go to HD folder" }
       ]
     '';
+
+    xdg.configFile."yazi/yazi.toml".text = ''
+      [opener]
+      edit = [
+        { run = "zeditor --classic %s", block = true, for = "unix" }
+      ]
+    '';
   };
 }

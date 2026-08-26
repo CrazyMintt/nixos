@@ -31,5 +31,12 @@
      	  { on = [ "g", "o" ], run = "cd ~/Obsidian", desc = "Go to Obsidian folder" }
       ]
     '';
+
+    xdg.configFile."yazi/yazi.toml".text = ''
+      [opener]
+      edit = [
+        { run = "zeditor --classic %s", block = true, for = "unix" }
+      ]
+    '';
   };
 }

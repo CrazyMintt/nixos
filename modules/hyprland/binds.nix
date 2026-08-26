@@ -4,7 +4,7 @@ let
   terminal = "${vars.terminal}";
   browser = "${vars.browser}";
   fileManager = "${vars.terminal} -e ${vars.file}";
-  editor = "${vars.editor}";
+  guiEditor = "${vars.guiEditor}";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -16,8 +16,8 @@ in
       "$mainMod, E, exec, ${fileManager}"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
-      "$mainMod, C, exec, ${editor}"
-      "$mainMod SHIFT, C, exec, ${editor} ~/.dotfiles"
+      "$mainMod, C, exec, ${guiEditor}"
+      "$mainMod SHIFT, C, exec, ${guiEditor} ~/.dotfiles"
       "$mainMod, I, exec, noctalia msg settings-toggle"
       "$mainMod, BACKSPACE, exec, noctalia msg panel-toggle session"
       "$mainMod, L, exec, noctalia msg session lock"
