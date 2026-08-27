@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +32,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-24-11, home-manager, noctalia, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-24-11, home-manager, sops-nix, noctalia, ... }@inputs:
     let
       system = "x86_64-linux";
       userSettings = import ./variables.nix;
@@ -38,6 +43,7 @@
         modules = [
           ./modules/system.nix
           ./modules/services
+          ./modules/secrets/secrets.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -74,6 +80,7 @@
               nixpkgs.buildPlatform = "x86_64-linux";
               nixpkgs.hostPlatform = "armv6l-linux";
             }
+            ./modules/secrets/secrets.nix
             ./modules/services
             ./modules/hosts/nix-rpi-server/default.nix
           ];

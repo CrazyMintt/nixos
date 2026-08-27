@@ -1,0 +1,12 @@
+keys:
+  - &notebook age1dlf6j55fa034zynlxlz2t5vz2a6kf6fr7q7f3z9j6x8cskze3usqwnqq5h
+  - &desktop age1x4mcaun0h8xfmkevmttqhcnhgrzhn0ewys2xcxtnk6y9yuzx59yqh68k9c
+  - &nix-rpi-server age1pudwv2w9uajlk6cesvjwela3plxflks2qnzckyu4vehx920clesq2mwhk6
+
+creation_rules:
+  - path_regex: modules/secrets/secrets\.yaml$
+    key_groups:
+    - age:
+      - *notebook
+      - *desktop
+      - *nix-rpi-server

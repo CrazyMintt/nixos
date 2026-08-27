@@ -1,10 +1,15 @@
-{ ... } :
+{ config, ... }:
+
 {
+  sops.secrets.wifi-env = {};
+
   networking = {
     wireless = {
+      environmentFile = config.sops.secrets.wifi-env.path;
+
       networks = {
-        "ssid" = {
-            psk = "password";
+        "@WIFI_SSID@" = {
+            psk = "@WIFI_PASSWORD@";
         };
       };
     };
