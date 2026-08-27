@@ -79,6 +79,10 @@
             {
               nixpkgs.buildPlatform = "x86_64-linux";
               nixpkgs.hostPlatform = "armv6l-linux";
+              sops.package = (import inputs.sops-nix {
+                pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux.pkgsCross.raspberryPi;
+              }).sops-install-secrets;
+              sops.validationPackage = inputs.sops-nix.packages.x86_64-linux.sops-install-secrets;
             }
             ./modules/secrets/secrets.nix
             ./modules/services

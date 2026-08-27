@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: 
+{ pkgs, inputs, lib, ... }: 
 
 {
   imports = [
@@ -9,7 +9,7 @@
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
     
-    age.keyFile = "/home/bruno/.config/sops/age/keys.txt";
+    age.keyFile = lib.mkDefault "/home/bruno/.config/sops/age/keys.txt";
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   };
 

@@ -12,6 +12,9 @@
   networking.hostName = "nix-rpi-server";
   networking.wireless.enable = true;
 
+  # Server decrypts secrets using SSH host key only
+  sops.age.keyFile = lib.mkForce null;
+
   # Mount Raspberry Pi boot firmware partition permanently
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/FIRMWARE";

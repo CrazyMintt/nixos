@@ -5,11 +5,11 @@
 
   networking = {
     wireless = {
-      environmentFile = config.sops.secrets.wifi-env.path;
+      secretsFile = config.sops.secrets.wifi-env.path;
 
       networks = {
-        "@WIFI_SSID@" = {
-            psk = "@WIFI_PASSWORD@";
+        "CLARO_SOB6" = {
+          pskRaw = "ext:WIFI_PASSWORD";
         };
       };
     };
