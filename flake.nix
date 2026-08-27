@@ -30,6 +30,10 @@
       url = "git+https://github.com/CrazyMintt/SiteMatheus.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nerd-run = {
+      url = "git+https://github.com/CrazyMintt/Nerd-run.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-24-11, home-manager, sops-nix, noctalia, ... }@inputs:

@@ -40,7 +40,12 @@
 
   services.site-matheus = {
     enable = true;
-    port = 8080;
+    port = 8081;
+  };
+
+  services.nerd-run = {
+    enable = true;
+    port = 8082;
   };
 
   # Nix daemon trusted users
