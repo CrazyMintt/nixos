@@ -3,6 +3,7 @@
 {
   imports = [
       ./programs/zed.nix
+      ./programs/opencode.nix
   ];
   
   home.packages = with pkgs; [
