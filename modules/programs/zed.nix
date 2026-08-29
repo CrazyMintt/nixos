@@ -15,6 +15,7 @@
     extensions = [
       "nix"
       "live-server"
+      "emmet"
     ];
     userSettings = {
       disable_ai = true;
