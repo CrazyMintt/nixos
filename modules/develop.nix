@@ -7,7 +7,6 @@
   ];
   
   home.packages = with pkgs; [
-    antigravity-cli
     devenv
     docker
     python3
