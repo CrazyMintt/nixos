@@ -14,7 +14,6 @@
     ];
     extensions = [
       "nix"
-      "live-server"
       "emmet"
     ];
     userSettings = {
@@ -86,6 +85,15 @@
             }
           ];
         };
+      }
+    ];
+    userTasks = [
+      {
+        label = "Live Server";
+        command = "python3 -m http.server 8080";
+        use_new_terminal = true;
+        allow_concurrent_runs = false;
+        reveal = "always";
       }
     ];
     themes.text = "${config.home.homeDirectory}/.config/zed/themes/noctalia.json";
