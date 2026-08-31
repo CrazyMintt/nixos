@@ -1,4 +1,4 @@
-{ pkgs, config, lib, modulesPath, ... }:
+{ pkgs, lib, modulesPath, ... }:
 
 {
   imports = [
@@ -37,6 +37,11 @@
       });
     })
   ];
+
+  services.rpi-portal = {
+    enable = true;
+    port = 8080;
+  };
 
   services.site-matheus = {
     enable = true;

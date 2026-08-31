@@ -26,6 +26,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # --- Projects/Services ---
+    rpi-portal = {
+      url = "git+https://github.com/CrazyMintt/rpi-portal.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     site-matheus = {
       url = "git+https://github.com/CrazyMintt/SiteMatheus.git";
       inputs.nixpkgs.follows = "nixpkgs";
