@@ -86,6 +86,17 @@
           ];
         };
       }
+      {
+        context = "Workspace";
+        bindings = {
+          "alt-l" = [
+            "task::Spawn"
+            {
+              "task_name" = "Live Server";
+            }
+          ];
+        };
+      }
     ];
     userTasks = [
       {
