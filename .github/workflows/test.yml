@@ -9,5 +9,6 @@ jobs:
     - uses: cachix/install-nix-action@v31
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: nix build
+    - run: nix build .#nixosConfigurations.desktop.config.system.build.toplevel
+    - run: nix build .#nixosConfigurations.notebook.config.system.build.toplevel
     - run: nix flake check
