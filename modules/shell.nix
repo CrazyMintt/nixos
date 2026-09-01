@@ -2,6 +2,7 @@ let
   shellAliases = {
     cat = "bat";
     dev = "devenv shell -- zeditor . && exit";
+    gsu = "git submodule update --remote";
     ssh = "kitty +kitten ssh";
     nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     nrs-pi = "NIX_SSHOPTS=\"-i /home/bruno/.ssh/nix_rpi_server\" nixos-rebuild switch --flake ~/.dotfiles#nix-rpi-server --target-host root@nix-rpi-server";
