@@ -11,6 +11,7 @@ in
     inputs.zen-browser.homeModules.twilight
     inputs.spicetify-nix.homeManagerModules.spicetify
     ./develop.nix
+    ./programs/freetube.nix
     ./programs/keepassxc.nix
     ./programs/zen-browser.nix
   ];
@@ -42,7 +43,6 @@ in
     # --- Etc ---
     gh
     gnome-obfuscate
-    infisical
     libreoffice
     networkmanagerapplet
 

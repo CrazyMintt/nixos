@@ -17,6 +17,7 @@ in
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, ${guiEditor}"
+      "$mainMod, Y, exec, freetube"
       "$mainMod SHIFT, C, exec, ${guiEditor} ~/.dotfiles"
       "$mainMod, I, exec, noctalia msg settings-toggle"
       "$mainMod, BACKSPACE, exec, noctalia msg panel-toggle session"
