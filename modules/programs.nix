@@ -12,9 +12,8 @@ in
     inputs.spicetify-nix.homeManagerModules.spicetify
     ./develop.nix
     ./programs/keepassxc.nix
+    ./programs/zen-browser.nix
   ];
-
-  programs.zen-browser.enable = true;
 
   programs.spicetify = {
     enable = true;
