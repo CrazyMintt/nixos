@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 14
 
 [bar.default]
 center = [ "workspaces" ]
@@ -43,9 +43,9 @@ auto_locate = true
 fingerprint = false
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-2" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-2", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -105,6 +105,23 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-2" ]
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 540.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_color = "surface"
+        background_opacity = 0.0
+        clock_style = "digital"
+        format = "{:%H:%M:%S}"
 
 [osd.kinds]
 lock_keys = false
