@@ -14,6 +14,7 @@ in
     ./programs/freetube.nix
     ./programs/keepassxc.nix
     ./programs/zen-browser.nix
+    ./programs/vim.nix
   ];
 
   programs.spicetify = {
