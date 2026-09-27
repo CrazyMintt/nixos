@@ -9,7 +9,7 @@ let
     ncg = "sudo nix-collect-garbage -d";
     zed = "zeditor";
     zen-browser = "zen-twilight";
-    vw = "vim ~/vimwiki/index.md";
+    vw = "vim ~/.Tenjin/index.md";
   };
 in
 

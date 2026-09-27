@@ -12,8 +12,9 @@ in
     bind = [
       # Apps
       "$mainMod, T, exec, ${terminal}"
-      "$mainMod, K, exec, keepassxc"
       "$mainMod, E, exec, ${fileManager}"
+      "$mainMod SHIFT, V, exec, ${terminal} -e vim ~/.Tenjin/index.md"
+      "$mainMod, K, exec, keepassxc"
       "$mainMod, W, exec, ${browser}"
       "$mainMod, O, exec, obsidian"
       "$mainMod, C, exec, ${guiEditor}"
