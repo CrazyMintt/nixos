@@ -1,20 +1,23 @@
+{ lib, gui ? true, ... }:
+
 let
   shellAliases = {
     cat = "bat";
-    dev = "devenv shell -- zeditor . && exit";
+    dpl = "nix run github:serokell/deploy-rs --";
     gsu = "git submodule update --remote";
-    ssh = "kitty +kitten ssh";
     nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-    nrs-pi = "NIX_SSHOPTS=\"-i /home/bruno/.ssh/nix_rpi_server\" nixos-rebuild switch --flake ~/.dotfiles#nix-rpi-server --target-host root@nix-rpi-server";
     ncg = "sudo nix-collect-garbage -d";
+    vw = "vim ~/.Tenjin/index.md";
+  } // lib.optionalAttrs gui {
+    dev = "devenv shell -- zeditor . && exit";
+    ssh = "kitty +kitten ssh";
     zed = "zeditor";
     zen-browser = "zen-twilight";
-    vw = "vim ~/.Tenjin/index.md";
   };
 in
 
 {
-  programs.kitty = {
+  programs.kitty = lib.mkIf gui {
     enable = true;
     extraConfig = "include $HOME/.config/kitty/themes/noctalia.conf";
     settings = {

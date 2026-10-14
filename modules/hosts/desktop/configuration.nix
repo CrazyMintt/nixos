@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "desktop";
-
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
