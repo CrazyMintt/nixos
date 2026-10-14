@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  networking.hostName = "notebook";
-
   # --- Bluetooth ---
   hardware.bluetooth = {
     enable = true;

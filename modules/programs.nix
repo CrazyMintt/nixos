@@ -14,7 +14,6 @@ in
     ./programs/freetube.nix
     ./programs/keepassxc.nix
     ./programs/zen-browser.nix
-    ./programs/vim.nix
   ];
 
   programs.spicetify = {
@@ -23,21 +22,6 @@ in
     adblockify
     hidePodcasts
     ];
-  };
-
-  programs.yazi = {
-    enable = true;
-    shellWrapperName = "y";
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Bruno";
-        email = "manobrunodutra@gmail.com";
-      };
-    };
   };
 
   home.packages = with pkgs; [

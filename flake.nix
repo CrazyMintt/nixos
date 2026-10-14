@@ -4,17 +4,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,78 +19,90 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    # --- Projects/Services ---
-    rpi-portal = {
-      url = "git+https://github.com/CrazyMintt/rpi-portal.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    site-matheus = {
-      url = "git+https://github.com/CrazyMintt/SiteMatheus.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nerd-run = {
-      url = "git+https://github.com/CrazyMintt/Nerd-run.git";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-24-11, home-manager, sops-nix, noctalia, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, noctalia, deploy-rs, ... }@inputs:
     let
       system = "x86_64-linux";
       userSettings = import ./variables.nix;
 
-      mkSystem = hostName: hostModules: nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./modules/system.nix
-          ./modules/services
-          ./modules/secrets/secrets.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.bruno = import ./modules/home.nix;
-            home-manager.backupFileExtension = "bkp";
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              vars = userSettings;
-              hyprlandConfig = ./modules/hyprland/monitor/${hostName}-default.nix;
-            };
-          }
-        ] ++ hostModules;
-      };
-    in
-    {
-      nixosConfigurations = {
-        notebook = mkSystem "notebook" [
-          ./modules/hosts/notebook/configuration.nix
-          ./modules/hosts/notebook/hardware-configuration.nix
-          ./modules/gaming.nix
-        ];
-
-        desktop = mkSystem "desktop" [
-          ./modules/hosts/desktop/configuration.nix
-          ./modules/hosts/desktop/hardware-configuration.nix
-          ./modules/gaming.nix
-        ];
-
-        nix-rpi-server = nixpkgs-24-11.lib.nixosSystem {
+      mkSystem = { hostName, hostModules, gui ? true }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
+            ./modules/system.nix
+            { networking.hostName = hostName; }
+          ] ++ nixpkgs.lib.optionals gui [
+            ./modules/gui.nix
+          ] ++ [
+            home-manager.nixosModules.home-manager
             {
-              nixpkgs.buildPlatform = "x86_64-linux";
-              nixpkgs.hostPlatform = "armv6l-linux";
-              sops.package = (import inputs.sops-nix {
-                pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux.pkgsCross.raspberryPi;
-              }).sops-install-secrets;
-              sops.validationPackage = inputs.sops-nix.packages.x86_64-linux.sops-install-secrets;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.bruno = import ./modules/home.nix;
+              home-manager.backupFileExtension = "bkp";
+              home-manager.extraSpecialArgs = {
+                inherit inputs gui;
+                vars = userSettings;
+                hyprlandConfig =
+                  if gui then ./modules/hyprland/monitor/${hostName}-default.nix else null;
+              };
             }
-            ./modules/secrets/secrets.nix
-            ./modules/services
-            ./modules/hosts/nix-rpi-server/default.nix
+          ] ++ hostModules;
+        };
+
+      hosts = {
+        notebook = {
+          hostModules = [
+            ./modules/hosts/notebook/configuration.nix
+            ./modules/hosts/notebook/hardware-configuration.nix
+            ./modules/gaming.nix
+          ];
+        };
+
+        desktop = {
+          hostModules = [
+            ./modules/hosts/desktop/configuration.nix
+            ./modules/hosts/desktop/hardware-configuration.nix
+            ./modules/gaming.nix
+          ];
+        };
+
+        server = {
+          gui = false;
+          hostModules = [
+            ./modules/hosts/server/configuration.nix
+            ./modules/hosts/server/hardware-configuration.nix
           ];
         };
       };
+    in
+    {
+      nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: cfg: mkSystem {
+        inherit hostName;
+        hostModules = cfg.hostModules;
+        gui = cfg.gui or true;
+      }) hosts;
+
+      deploy = {
+        nodes.server = {
+          hostname = "server";
+          sshUser = "bruno";
+          interactiveSudo = true;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.server;
+          };
+        };
+      };
+
+      checks = builtins.mapAttrs
+        (system: deployLib: deployLib.deployChecks self.deploy)
+        deploy-rs.lib;
     };
 }
