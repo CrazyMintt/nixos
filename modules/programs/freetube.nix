@@ -32,9 +32,6 @@
       hideTrendingVideos = {
         "value" = true;
       };
-      hideActiveSubscriptions = {
-        "value" = true;
-      };
       hideSubscriptionsShorts = {
         "value" = true;
       };
