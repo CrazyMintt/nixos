@@ -1,5 +1,11 @@
 config_version = 15
 
+[audio]
+enable_notification_sounds = false
+enable_power_sounds = false
+enable_screenshot_sounds = false
+enable_volume_sounds = false
+
 [bar.default]
 center = [ "workspaces" ]
 end = [ "network", "bluetooth", "notifications", "battery", "volume", "brightness", "session" ]
@@ -166,10 +172,10 @@ directory = "/home/bruno/.dotfiles/modules/config/wallpaper"
     interval_seconds = 900
 
     [wallpaper.default]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-2y2wg6.png"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
     [wallpaper.last]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-2y2wg6.png"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
     [wallpaper.monitors.DP-2]
     path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-q62w8r.jpg"
@@ -178,7 +184,7 @@ directory = "/home/bruno/.dotfiles/modules/config/wallpaper"
     path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-xl2w2v.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-2y2wg6.png"
+    path = "/home/bruno/.dotfiles/modules/config/wallpaper/wallhaven-d52pk3.png"
 
 [widget.active_window]
 title_scroll = "on_hover"
