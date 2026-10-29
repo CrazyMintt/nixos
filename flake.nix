@@ -13,8 +13,7 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia/cachix";
     };
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
