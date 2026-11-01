@@ -1,5 +1,5 @@
 # Home Manager configuration
-{ config, lib, pkgs, vars, gui ? true, hyprlandConfig ? null, ... }:
+{ lib, vars, gui ? true, ... }:
 
 {
   home.username = "bruno";
@@ -14,9 +14,6 @@
     ./programs.nix
     ./desktop-shells/noctalia.nix
     ./theme.nix
-  ]
-  ++ lib.optionals (hyprlandConfig != null) [
-    hyprlandConfig
   ];
 
   home.sessionVariables = {

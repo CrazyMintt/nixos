@@ -16,6 +16,8 @@
       url = "github:noctalia-dev/noctalia/cachix";
     };
 
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     deploy-rs = {
@@ -32,7 +34,7 @@
       mkSystem = { hostName, hostModules, gui ? true }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; vars = userSettings; };
           modules = [
             ./modules/system.nix
             { networking.hostName = hostName; }

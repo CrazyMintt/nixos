@@ -218,3 +218,6 @@ show_label = false
 
 [widget.volume]
 show_label = false
+
+[widget.workspaces]
+hide_when_empty = true
